@@ -8,6 +8,7 @@ public class BanksGame extends NumberGame {
 	 */
 	private int upperbound;
 	private int secret;
+	private int count;
 
 	/**
 	 * Initialize a new game.
@@ -32,16 +33,27 @@ public class BanksGame extends NumberGame {
 	 * @return true if guess is correct or false if wrong.
 	 */
 	public boolean guess(int number) {
+		count++;
 		if (number == this.secret) {
 			super.setMessage("Hooray! That is the correct number.");
 			return true;
 		}
 		if (number < secret) {
-			super.setMessage("Too small!");
+			super.setMessage("too small");
 		} else if (number > secret) {
-			super.setMessage("Too big!");
+			super.setMessage("too large");
 		}
 		return false;
+	}
+
+	@Override
+	/**
+	 * Get count value which comes guess(int number)
+	 * 
+	 * @return count
+	 */
+	public int getCount() {
+		return count;
 	}
 
 	/** Get the game upper bound. */

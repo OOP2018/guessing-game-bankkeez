@@ -13,12 +13,11 @@ public class GameSolver {
 	 *            is the NumberGame to solve @ return the secret number
 	 */
 	public int play(NumberGame game) {
-		// describe the game
+	// describe the game
 		System.out.println(game);
 		int max = game.getUpperBound();
 		int min = 0;
 		int find = (max - min) / 2;
-		int count = 0;
 		while (true) {
 			System.out.println(game.getMessage());
 			System.out.println("AI answer? " + find);

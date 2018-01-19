@@ -1,5 +1,6 @@
 /**
  * Finds the secret number in one click.
+ *
  */
 public class GameSolver {
 	/**
@@ -10,10 +11,11 @@ public class GameSolver {
 	 * @author Piyawat Setthtikun
 	 * 
 	 * @param game
-	 *            is the NumberGame to solve @ return the secret number
+	 *            is the NumberGame to solve
+	 * @return the secret number
 	 */
 	public int play(NumberGame game) {
-	// describe the game
+		// describe the game
 		System.out.println(game);
 		int max = game.getUpperBound();
 		int min = 0;

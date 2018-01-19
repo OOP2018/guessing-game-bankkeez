@@ -1,11 +1,11 @@
 import java.util.Random;;
 
+/**
+ * Bank's guessing game, quite tricky.
+ * 
+ * @author Piyawat Setthitikun
+ */
 public class BanksGame extends NumberGame {
-	/**
-	 * Bank's guessing game, quite tricky.
-	 * 
-	 * @author Piyawat Setthitikun
-	 */
 	private int upperbound;
 	private int secret;
 	private int count;
@@ -24,7 +24,6 @@ public class BanksGame extends NumberGame {
 		super.setMessage("I'm thinking of a number between 1 and " + upperbound);
 	}
 
-	@Override
 	/**
 	 * Evaluate a user's guess.
 	 * 
@@ -32,6 +31,7 @@ public class BanksGame extends NumberGame {
 	 *            is the user's guess
 	 * @return true if guess is correct or false if wrong.
 	 */
+	@Override
 	public boolean guess(int number) {
 		count++;
 		if (number == this.secret) {
@@ -46,12 +46,12 @@ public class BanksGame extends NumberGame {
 		return false;
 	}
 
-	@Override
 	/**
 	 * Get count value which comes guess(int number)
 	 * 
 	 * @return count
 	 */
+	@Override
 	public int getCount() {
 		return count;
 	}

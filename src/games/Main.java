@@ -27,29 +27,35 @@ public class Main extends Application {
 				System.out.println("Could not find resource for " + fxmlfile);
 				return;
 			}
+			// Load the FXML and get reference to the loader
 			FXMLLoader loader = new FXMLLoader(url);
-			// create scene graph from file
+			// Create scene graph from file (UI)
 			Parent root = loader.load();
-			// get the controller for the scene
+			// Get the controller for the scene
 			GameController controller = loader.getController();
+
 			// Dependency Injection:
-			// set the game into the controller
+			// Set the game into the controller
 			controller.setGame(game);
-			// show the scene
+			// Show the scene
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.sizeToScene();
+			stage.setTitle("Let's Guess!");
 			stage.show();
 		} catch (Exception e) {
 			System.out.println("Exception create in scene: " + e.getMessage());
 			e.printStackTrace();
 		}
-		// add observer that displays guess messages
+		// Add observer that displays game message
 		GuessView view = new GuessView(game);
-		// register view to observable
+		CountView view2 = new CountView(game);
+		// Register each view to observable
 		game.addObserver(view);
-		// display the game's messager scene
+		game.addObserver(view2);
+		// Display the game message scene
 		view.run();
+		view2.run();
 
 	}
 

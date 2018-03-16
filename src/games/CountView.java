@@ -11,12 +11,12 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
- * A Controller for a window that displays the game message.
+ * A Controller for a window that displays the count of guesses.
  * 
  * @author Piyawat Setthitikun
  *
  */
-public class GuessView implements java.util.Observer {
+public class CountView implements java.util.Observer {
 	/** the stage for showing scene */
 	private Stage stage;
 	/** A game to play */
@@ -25,12 +25,12 @@ public class GuessView implements java.util.Observer {
 	private Label label;
 
 	/**
-	 * Initialize a game display, which shows message of the game.
+	 * Initialize the count of the game display, which show guesses of the game.
 	 * 
 	 * @param Any
 	 *            NumberGame
 	 */
-	public GuessView(NumberGame game) {
+	public CountView(NumberGame game) {
 		this.game = game;
 		initComponents();
 	}
@@ -41,13 +41,13 @@ public class GuessView implements java.util.Observer {
 		root.setPadding(new Insets(10));
 		root.setAlignment(Pos.CENTER);
 		label = new Label("   ");
-		label.setPrefSize(400, 200);
-		label.setFont(new Font("Arial", 20.0));
+		label.setPrefSize(300, 150);
+		label.setFont(new Font("Arial", 70.0));
 		label.setAlignment(Pos.CENTER);
 		root.getChildren().add(label);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
-		stage.setTitle("Hint");
+		stage.setTitle("Guess");
 		stage.sizeToScene();
 	}
 
@@ -58,7 +58,7 @@ public class GuessView implements java.util.Observer {
 	}
 
 	public void display() {
-		label.setText(String.format("%s", game.getMessage()));
+		label.setText(String.format("%2d", game.getCount()));
 	}
 
 	@Override

@@ -73,6 +73,6 @@ public abstract class NumberGame extends Observable {
 	 */
 	@Override
 	public String toString() {
-		return "You should override this method for your game";
+		return "Override this method!";
 	}
 }

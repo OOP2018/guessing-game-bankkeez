@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane prefHeight="236.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="games.GameController">
+   <top>
+      <Label text="Guessing Game :)" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Britannic Bold" size="36.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <FlowPane alignment="CENTER" hgap="10.0" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="insert:">
+               <FlowPane.margin>
+                  <Insets right="15.0" />
+               </FlowPane.margin>
+            </Label>
+            <TextField fx:id="guessbox" alignment="CENTER" onAction="#onAction" prefHeight="95.0" prefWidth="119.0">
+               <font>
+                  <Font size="44.0" />
+               </font>
+            </TextField>
+         </children>
+      </FlowPane>
+   </center>
+</BorderPane>

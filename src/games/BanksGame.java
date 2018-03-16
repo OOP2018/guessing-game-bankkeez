@@ -1,3 +1,5 @@
+package games;
+
 import java.util.Random;;
 
 /**
@@ -34,16 +36,19 @@ public class BanksGame extends NumberGame {
 	@Override
 	public boolean guess(int number) {
 		count++;
+		boolean answer = false;
 		if (number == this.secret) {
-			super.setMessage("Hooray! That is the correct number.");
-			return true;
+			super.setMessage("Hooray! " + number + " is the correct number.");
+			answer = true;
 		}
 		if (number < secret) {
-			super.setMessage("too small");
+			super.setMessage("Sorry, " + number + " is too small.");
 		} else if (number > secret) {
-			super.setMessage("too large");
+			super.setMessage("Sorry, " + number + " too large.");
 		}
-		return false;
+		setChanged();
+		notifyObservers();
+		return answer;
 	}
 
 	/**
@@ -57,13 +62,14 @@ public class BanksGame extends NumberGame {
 	}
 
 	/** Get the game upper bound. */
+	@Override
 	public int getUpperBound() {
 		return this.upperbound;
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Guees a secret number between 1 and %d", this.upperbound);
+		return String.format("Guess a secret number between 1 and %d", this.upperbound);
 
 	}
 }

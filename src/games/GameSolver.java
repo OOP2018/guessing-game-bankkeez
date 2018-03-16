@@ -1,3 +1,4 @@
+package games;
 /**
  * Finds the secret number in one click.
  *

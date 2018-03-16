@@ -1,3 +1,7 @@
+package games;
+
+import java.util.Observable;
+
 /**
  * The base class for all number games. Your guessing game should extend this
  * class and override the methods: guess(), toString(), getUpperBound().
@@ -5,7 +9,7 @@
  * Your class should not override getMessage() and setMessage(), just use the
  * methods from this class.
  */
-public class NumberGame {
+public abstract class NumberGame extends Observable {
 	/** A helpful message for user. */
 	private String message;
 
@@ -22,11 +26,7 @@ public class NumberGame {
 	 *            is the user's answer, as an integer.
 	 * @return true if correct, false otherwise
 	 */
-	public boolean guess(int answer) {
-		// TODO your subclass should override this method
-		message = "Sorry, that's not correct";
-		return false;
-	}
+	public abstract boolean guess(int answer);
 
 	/**
 	 * Return a message about the most recent call to guess(). Initially the
